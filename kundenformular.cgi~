@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+
+use DateTime;
+my $dt = DateTime->today;
+print $dt->date;
+
     local ($buffer, @pairs, $pair, $name, $value, %FORM);
     # Read in text
     $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;
@@ -36,7 +41,7 @@ use DBI;
 my $dbh = DBI->connect('dbi:Pg:dbname=test;host=localhost','postgres','',{AutoCommit=>1,RaiseError=>1,PrintError=>0});
 
 # execute INSERT query
-my $rows = $dbh->do("INSERT INTO customer (startdate, name, notes) VALUES ('1-1-1970','$first_name', '$last_name')");
+my $rows = $dbh->do("INSERT INTO customer (name, notes, startdate) VALUES ('$first_name', '$last_name', current_date)");
 print "$rows row(s) affected\n";
 
 1;
