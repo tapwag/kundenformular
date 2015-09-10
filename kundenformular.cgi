@@ -1,4 +1,8 @@
 #!/usr/bin/perl
+use POSIX qw(strftime);
+#
+$datestring = strftime "%F", localtime;
+printf("$datestring");
 
     local ($buffer, @pairs, $pair, $name, $value, %FORM);
     # Read in text
@@ -36,7 +40,7 @@ use DBI;
 my $dbh = DBI->connect('dbi:Pg:dbname=test;host=localhost','postgres','',{AutoCommit=>1,RaiseError=>1,PrintError=>0});
 
 # execute INSERT query
-my $rows = $dbh->do("INSERT INTO customer (startdate, name, notes) VALUES ('1-1-1970','$first_name', '$last_name')");
+my $rows = $dbh->do("INSERT INTO customer (startdate, name, notes) VALUES ('$datestring','$first_name', '$last_name')");
 print "$rows row(s) affected\n";
 
 1;
