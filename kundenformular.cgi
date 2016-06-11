@@ -2,7 +2,6 @@
 use POSIX qw(strftime);
 #
 $datestring = strftime "%F", localtime;
-printf("$datestring");
 
     local ($buffer, @pairs, $pair, $name, $value, %FORM);
     # Read in text
