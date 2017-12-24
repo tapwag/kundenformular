@@ -6,3 +6,4 @@ Das Formular ist nach wie vor in der Entwicklung und funktioniert leider noch ni
 * TO DO / Prioritätsliste
 - Verwendung der SQL Ledger API implementieren
 - Multiple Datenbankunterstützung
+- Internationalisierung in mehreren Sprachen
