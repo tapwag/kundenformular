@@ -21,6 +21,7 @@ $datestring = strftime "%F", localtime;
     }
     $first_name = $FORM{first_name};
     $last_name  = $FORM{last_name};
+    $country = $FORM{country};
 
 print "Content-type:text/html\r\n\r\n";
 print "<html>";
@@ -40,6 +41,8 @@ my $dbh = DBI->connect('dbi:Pg:dbname=test;host=localhost','postgres','',{AutoCo
 
 # execute INSERT query
 my $rows = $dbh->do("INSERT INTO customer (startdate, name, notes) VALUES ('$datestring','$first_name', '$last_name')");
-print "$rows row(s) affected\n";
+my $rows = $dbh->do("INSERT INTO contact (firstname, lastname) VALUES ('$first_name', '$last_name'");
+my $rows = $dbh->do("INSERT INTO address (country) VALUES ('$country'");
+
 
 1;
